@@ -14,7 +14,7 @@ const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
 export default function BottomTabNavigator() {
   const colorScheme = useColorScheme();
-
+// @TODO: tab navigator and init route is AllTodoScreen
   return (
     <BottomTab.Navigator
       initialRouteName="CompleteTab"
