@@ -1,32 +1,38 @@
-import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
-
-export default function SingleToDoScreen() {
+const SingleTodoScreen = props => {
+  console.log(props);
+  const { id, status, body } = props.route.params.updatedTodo;
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Single to do to do</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/SingleToDoScreen.js" />
+      <Text style={styles.headerText}>
+        {id}. {status}
+      </Text>
+      <Text style={styles.bodyText}>{body}</Text>
     </View>
   );
-}
+};
+
+SingleTodoScreen.navigationOptions = {
+  title: 'SingleTodoScreen'
+};
+
+export default SingleTodoScreen;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  headerContainer: {
+    flexDirection: 'row'
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  headerText: {
+    fontSize: 30
   },
+  bodyText: {
+    fontSize: 50
+  }
 });

@@ -6,19 +6,24 @@ export default {
     screens: {
       Root: {
         screens: {
+          AllTodoTab: {
+            screens: {
+              AllTodoScreen: 'one',
+            },
+          },
           CompleteTab: {
             screens: {
-              CompleteScreen: 'one',
+              CompleteScreen: 'two',
             },
           },
           AddTab: {
             screens: {
-              AddScreen: 'two',
+              AddScreen: 'three',
             },
           },
           ActiveTab: {
             screens: {
-              ActiveScreen: 'three',
+              ActiveScreen: 'four',
             },
           },
         },
