@@ -27,7 +27,7 @@ export default function BottomTabNavigator() {
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
     >
       <BottomTab.Screen
-        name="CompleteTab"
+        name="Completed"
         component={CompleteTabNavigator}
         options={{
           tabBarIcon: ({ color }) => (
@@ -45,7 +45,7 @@ export default function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="ActiveTab"
+        name="Active"
         component={ActiveTabNavigator}
         options={{
           tabBarIcon: ({ color }) => (
@@ -72,7 +72,7 @@ function CompleteTabNavigator() {
       <CompleteTabStack.Screen
         name="CompleteScreen"
         component={CompleteScreen}
-        options={{ headerTitle: "Complete tab Title" }}
+        options={{ headerTitle: "Completed" }}
       />
     </CompleteTabStack.Navigator>
   );
@@ -100,12 +100,12 @@ function AllTodoTabNavigator() {
       <AllTodoTabStack.Screen
         name="AllTodoScreen"
         component={AllTodoScreen}
-        options={{ headerTitle: "All To do" }}
+        options={{ headerTitle: "All To do", headerShown: false }}
       />
       <AllTodoTabStack.Screen
         name="SingleTodoScreen"
         component={SingleTodoScreen}
-        options={{ headerTitle: "Single to do" }}
+        options={{ headerTitle: "About task" }}
       />
     </AllTodoTabStack.Navigator>
   );

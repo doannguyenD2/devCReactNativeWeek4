@@ -1,14 +1,35 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
+import { TODOS } from '../utils/data';
 
 export default function CompleteScreen() {
+  const [task, setTask] = React.useState(TODOS);
+  const TodoItem = (td, idx, key) => {
+    return (
+      <TouchableOpacity
+        key={td.td.body}
+        style={styles.todoItem}
+      >
+        <Text style={styles.todoText}>
+          {td.idx + 1}: {td.td.body}
+        </Text>
+      </TouchableOpacity>
+    );
+  }
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Complete</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/CompleteScreen.js" />
+    <View>
+      {task.map((todo, idx) => {
+        if (todo.status == "Done")
+          return (
+            <TodoItem
+              idx={idx}
+              td={todo}
+              key={idx}
+            />
+          );
+      })}
     </View>
   );
 }
@@ -28,4 +49,15 @@ const styles = StyleSheet.create({
     height: 1,
     width: '80%',
   },
+  todoItem: {
+    padding: 20,
+    margin: 5,
+    borderRadius: 20,
+    backgroundColor: '#66ff33'
+  },
+  todoText: {
+    fontFamily: 'Montserrat',
+    color: 'black',
+    fontSize: 20,
+  }
 });

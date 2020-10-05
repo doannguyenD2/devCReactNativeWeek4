@@ -1,3 +1,4 @@
+import { processFontFamily } from 'expo-font';
 import * as React from 'react';
 import {
   Alert, StyleSheet, TextInput, TouchableOpacity, ScrollView,
@@ -21,7 +22,7 @@ export default function AllTodoScreen(props: any) {
       props.navigation.navigate('SingleTodoScreen', {
         updatedTodo: todo
       });
-    }, 500);
+    }, 100);
   };
   const onSubmitTodo = () => {
     const newTodo = {
@@ -56,7 +57,7 @@ export default function AllTodoScreen(props: any) {
   };
   const TodoItem = (props: { todo: { status: string; body: {} | null | undefined; id: any; }; onToggleTodo: (arg0: any) => void; onDeleteTodo: (arg0: any) => void; idx: number; }) => {
     const statusStyle = {
-      backgroundColor: props.todo.status === "Done" ? "blue" : "green"
+      backgroundColor: props.todo.status === "Done" ? "#3366ff" : "#66ff33"
     };
     return (
       <TouchableOpacity
@@ -77,8 +78,9 @@ export default function AllTodoScreen(props: any) {
         enabled
         behavior="padding"
       >
+      <Text style = {{fontWeight: 'bold', fontFamily: 'Montserrat', fontSize: 30}}>Good morning!</Text>
         <ScrollView style={{ flex: 1 }}>
-        <View style={{ marginTop: "200%" }}>
+        <View style={{marginTop: '50%', backgroundColor: 'none'}}>
           {todoList.map((todo, idx) => {
             return (
               <TodoItem
@@ -112,35 +114,36 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     backgroundColor: '#fff',
-    backgroundColor: 'black',
     justifyContent: 'center'
   },
   todoItem: {
+    padding: 20,
     margin: 5,
-    padding: 10,
-    minHeight: 50,
-    width: '95%',
-    color: 'white',
-    borderRadius: 5,
-    flexWrap: 'wrap'
+    borderRadius: 20,
+    backgroundColor: '#66ff33'
   },
   todoText: {
+    fontFamily: 'Montserrat',
+    color: 'black',
     fontSize: 20,
-    color: 'white',
-    fontWeight: 'bold'
   },
   todoInput: {
     width: '95%',
+    fontSize: 30,
+    fontFamily: "Montserrat",
+    backgroundColor: 'rgba(255,255,255,0.5)',
+    height: 50,
     minHeight: 30,
-    color: 'white',
-    borderWidth: 1,
+    color: 'black',
+    borderRadius: 20,
     marginTop: '20%',
     marginBottom: '5%',
     borderColor: 'grey'
   },
   inputContainer: {
+    backgroundColor: 'none',
     flex: 1,
-    width: '90%',
+    width: '100%',
     marginTop: 20,
     // marginBottom: '10%',
     alignItems: 'center',
@@ -150,14 +153,15 @@ const styles = StyleSheet.create({
   button: {
     height: 50,
     width: '50%',
-    borderRadius: 10,
+    borderRadius: 20,
     alignItems: 'center',
-    backgroundColor: 'blue',
-    justifyContent: 'center'
+    backgroundColor: '#0033cc',
+    justifyContent: 'center',
   },
   buttonText: {
+    fontSize: 20,
     color: 'white',
-    fontWeight: 'bold'
+    fontFamily: "Montserrat",
   },
   scrollView: {
     flex: 1,
