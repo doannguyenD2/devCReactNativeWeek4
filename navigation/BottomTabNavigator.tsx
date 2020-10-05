@@ -23,7 +23,7 @@ export default function BottomTabNavigator() {
   // @TODO: tab navigator and init route is AllTodoScreen
   return (
     <BottomTab.Navigator
-      initialRouteName="AllTodoTab"
+      initialRouteName="All"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
     >
       <BottomTab.Screen
@@ -36,7 +36,7 @@ export default function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="AllTodoTab"
+        name="All"
         component={AllTodoTabNavigator}
         options={{
           tabBarIcon: ({ color }) => (
@@ -86,7 +86,7 @@ function ActiveTabNavigator() {
       <ActiveTabStack.Screen
         name="ActiveScreen"
         component={ActiveScreen}
-        options={{ headerTitle: "Active Title" }}
+        options={{ headerTitle: "Active" }}
       />
     </ActiveTabStack.Navigator>
   );

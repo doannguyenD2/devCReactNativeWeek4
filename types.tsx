@@ -4,10 +4,10 @@ export type RootStackParamList = {
 };
 
 export type BottomTabParamList = {
-  AllTodoTab: undefined;
-  CompleteTab: undefined;
+  All: undefined;
+  Completed: undefined;
   AddTab: undefined;
-  ActiveTab: undefined;
+  Active: undefined;
 };
 
 export type CompleteScreenParamList = {

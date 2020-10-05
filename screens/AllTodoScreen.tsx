@@ -78,7 +78,6 @@ export default function AllTodoScreen(props: any) {
         enabled
         behavior="padding"
       >
-      <Text style = {{fontWeight: 'bold', fontFamily: 'Montserrat', fontSize: 30}}>Good morning!</Text>
         <ScrollView style={{ flex: 1 }}>
         <View style={{marginTop: '50%', backgroundColor: 'none'}}>
           {todoList.map((todo, idx) => {
